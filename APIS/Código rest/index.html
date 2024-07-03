@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente de API</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">    
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" id="tela">
+        </div>
+    </div>
+    <script>
+        // Abordagem FETCH
+        console.log ('Começou')
+
+        fetch ('https://api.themoviedb.org/3/movie/popular?api_key=9c2c75d9d67c3f98cc98bb29450115c5&language=pt-BR')
+           .then(res => res.json ())
+           .then(data => {
+            //o imprimindo filmes é executado por ultimo por causa do fetch. Ele tá dentro de uma promisse, ele acontece no futuro
+                console.log ('Imprimindo filmes')
+                let str = ''
+                for (let i = 0; i < data.results.length; i++) {
+                    //vai criar um card pra cada filme
+                    let filme = data.results[i]
+                    str += `<div class="card col-md-4" style="width: 18rem;">
+                        <img src="https://image.tmdb.org/t/p/w500${filme.poster_path}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">${filme.title}</h5>
+                            <p class="card-text">${filme.overview}</p>
+                            <a href="https://www.themoviedb.org/movie/${filme.id}" target="_blank" class="btn btn-primary">Mais detalhes</a>
+                        </div>
+                        </div>`
+                }
+                //Coloca o str com os cards na div
+                document.getElementById('tela').innerHTML = str
+           })
+           
+        console.log ('Terminou')
+
+        // Abordagem JQUERY
+        //passamos no ajax um objeto com as configurações da requisição que vamos fazer. Como vamos usar o GET(para pegar os dados),não precisamos especificar o metodo, já que usa o GET automaticamente
+        //No ajax eu já recebo os dados, então já dá pra ir direto pra bio
+        // $.ajax({
+        //     url: 'https://api.github.com/users/gabrielpenido0412'
+        // })
+        //É uma promisse
+        // .done (response => {
+        //     console.log('Biografia: ' + response.bio)
+        //     document.getElementById('tela').innerHTML = response.bio
+        // })
+
+
+        // Abordagem XHR
+        // let xhr = new XMLHttpRequest()
+        // xhr.onload = function (event) {
+            //isso dá o texto do json, que é  transformado em objeto
+        //     let data = JSON.parse (event.target.response)
+        //     console.log (data.bio)
+        //     document.getElementById('tela').innerHTML = data.bio
+        // }
+        // xhr.open ('GET', 'https://api.github.com/users/rommelcarneiro')
+        // xhr.send ()
+    </script>
+</body>
+</html>

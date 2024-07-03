@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cliente da API</title>
+    <!--Usamos a API pra criar a interace do usuário-->
+
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <script>
+        //fetch é uma API que usa promisses. As promisses são os objetos retornados pelo fetch. É um promessa do que vai acontecer quando aquilo que eu solicitei for retornado
+        fetch('https://api.themoviedb.org/3/movie/732203?api_key=9c2c75d9d67c3f98cc98bb29450115c5&language=pt-BR')
+        //A promisse é o then. Quando isso retornar, ele vai executar a função function, que recebe uma resposta e imprime ela no console
+           // .then(function(res){console.log(res)})
+           //Agora com a função seta pra pegar o JSON 
+           //Recebemos o res e retornamos json do corpo da resposta
+           .then(res=>res.json())
+           //Imprime os dados no console.(O nome do resultado podia ser qualuqer coisa, data é só um exemplo )
+           .then(data=>console.log(data))
+           //Pra imprimir só a bio
+          // .then(data=>console.log(data.bio))
+          //Coloca a bio no elemento  de id tela
+          //.then(data=>document.getElementById('tela').innerText=data.bio)
+
+        //Agora, a mesma coisa, só que com Jquery
+        //passamos no ajax um objeto com as configurações da requisição que vamos fazer. Como vamos usar o GET(para pegar os dados),não precisamos especificar o metodo, já que usa o GET automaticamente
+        //No ajax eu já recebo os dados, então já dá pra ir direto pra bio
+        /*$.ajax({
+            url:'https://api.github.com/users/gabrielpenido0412',  
+            success:function(data){
+                //O + permite a gente juntar texto com dados
+                console.log('Biografia: '+ data.bio)
+                //Imprimindo no elemento de id tela
+                .then(data=>document.getElementById('tela').innerText=data.bio)
+            }
+        })
+    */
+    </script>
+    <div id="tela"></div>
+</body>
+</html>

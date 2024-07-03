@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   
+</head>
+
+<body>
+    <div id="tela">
+
+    </div>
+    <script>
+        function success() { 
+            let obj= JSON.parse(this.responseText);
+            //imprimindo por meio duma janela de alerta.Aparece um alerta com nada e outro alerta com esses dados
+            //Na API do github, tem os dados do usuário, tipo um JSON. O objeto que tem o nome chama name e o objeto que tem a biografia chama bio, por o obj.name e obj.bio.
+
+            //alert(`Nome :${obj.name}\nBiografia:${obj.bio} `);
+            // Pra imprimir isso na div de id tela
+            let texto =`Nome :${obj.name}<br>Biografia:${obj.bio}`
+            document.getElementById('tela').innerHTML=texto;
+            //console.log(JSON.parse(this.responseText)); 
+        }
+        function error(err) { console.log('Erro:', err); }
+        var xhr = new XMLHttpRequest();
+        //se refere ao que será executado quando a resposta da requisição for recebida
+        xhr.onload = success;
+        xhr.onerror = error;
+        xhr.open('GET', 'https://api.github.com/users/rommelcarneiro');
+        xhr.send();
+    </script>
+</body>
+
+</html>
