@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $('#mais1').click(function(){
+            //O append adiciona um filho no fim da lista de filhos. No caso, ele adiciona um novo li na ul.
+            //A li é um elemento html.Porém, nós não usamos o metodo html nela, já que isso não ia fazer o li ser adicionado no  final da ul. Então, nós fazemos outro $,o que transforma o <li>Item</li> em um novo elemento da página.
+                $('#lista').append(
+                    $("<li>Item</li>")
+                );
+           });
+        });
+    </script>
+</head>
+<body>
+    <h1>Jquery</h1>
+    <ul id="lista"></ul>
+    <p><button id="mais1">+1</button></p>
+    <div></div>
+</body>
+</html>

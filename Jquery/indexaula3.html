@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //O id mais é associado ao elemento click. O elemento recebe uma função.Nela, declaramos a variavel localmente(usando o let)de nome valor, que usando o metodo .text, pega o texto do elemento que tem o id contador e o converte em inteiro(fazemos isso usando o parse.int). Quando o elemento for clicado, o valor do texto vai aumentar em 1. Ou seja,como o span que tem 0 como texto tem o id mais um, o zero, vai passar a ser um quando esse butão for clicado.
+            $("#mais1").click(function(){
+                let valor= parseInt($('#contador').text());
+                $('#contador').text(valor+1);
+                $('#menos1').prop('disabled',false);
+            });
+            //Mesma ideia, só que pra diminuir. O botão só é ativado quando o numero for maior que 0. 
+            $("#menos1").click(function(){
+                let valor= parseInt($('#contador').text());
+                valor--;
+                //como é só uma instrução, não precisa ter chaves no if.
+                if(valor>=0) $('#contador').text(valor);    
+                if(valor==0) $('#menos1').prop('disabled',true);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Jquery</h1>
+    <p>Contador: <span id="contador">0</span></p>
+    
+    <p><button id="mais1">+1</button></p>
+    <p><button id="menos1">-1</button></p>
+</body>
+</html>

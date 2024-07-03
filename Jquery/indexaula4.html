@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var cor = $('#caixa').css('background-color');
+            $('#caixa').css('background-color', 'yellow');
+            $('#caixa').css({
+             background-color: 'yellow',
+             border: 'thin solid black'
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Jquery</h1>
+    <div id="caixa">
+        <p>Ola</p>
+    </div>
+</body>
+</html>

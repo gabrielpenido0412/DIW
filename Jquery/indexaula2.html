@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //O seletor pega a propriedade de css background color e deixa o h1 com fundo vermelho. Como o seletor é 'h1', ele mexe em todos os h1. Pra mexer em um específico, só botar id(ou classe) neles.
+            $('h1').css('background-color',"Red");
+        });
+        //Mesma coisa, só que com li
+        $(document).ready(function(){
+            $('li').css('font-size','120%');
+        });
+        //Mesma coisa, só que só altera a li com o id lista1
+        $(document).ready(function(){
+            $('#lista1').css('font-size','140%');
+        });
+        $(document).ready(function(){
+            //Altera a cor de fundo das listas pares. Lembra que a numeração começa no 0! No caso, ele altera a primeira lista (0) e a terceira lista (2)
+            $('li:even').css('background-color','yellow');
+        });
+        $(document).ready(function(){
+            //Deixa os textos em ingles em italico
+            $(':lang("en")').css('font-style','italic');
+        });
+    </script>
+</head>
+<body>
+    <h1>JQuery</h1>
+    <p>Testes com jquery</p>
+    <ul>
+        <li id="lista1">Testes com seletores</li>
+        <li> Testes de alteração de conteúdo</li>
+        <li>Teste de alteração de formatação</li>
+        <li lang="en"> CSS Manipulation test</li>
+    </ul>
+</body>
+
+</html>
