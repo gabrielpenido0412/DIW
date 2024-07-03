@@ -1,0 +1,13 @@
+* { margin: 0px; padding: 0px; }
+div {
+    /*Modifica a altura do elemento div*/
+    height: 100px;
+    /*Cor de fundo*/
+    background-color: red;
+    /*Define a margem.Quanto menor ela for, mais próxima da borda da pagina ela vai ser.*/
+    margin: 30px;
+    /*O espaçamento entre a borda e o conteudo(que nesse caso é o "Linguagem CSS"*/
+    padding: 35px;
+    /*O tamanho e a cor da borda*/
+    border: solid 20px black;
+}
