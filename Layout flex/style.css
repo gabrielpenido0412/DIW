@@ -1,0 +1,70 @@
+html{
+    height: 100%;
+}
+body,ul,li,p{
+    /*Resetamos a margin e padding*/
+    margin: 0px;
+    padding: 0px;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header a{
+    text-decoration: none;
+    color: white;
+}
+h1{
+    font-size: 120%;
+    text-align: center;
+}
+img{
+    /*Esse 100% impede que a imagem aumente mais que seu tamanho original.*/
+    max-width: 100%;
+    display: block;
+}
+header a{
+    text-decoration: none;
+    color: white;
+}
+.cabeçalho{
+    background-color:#727272;
+    display: flex;
+    flex-wrap: wrap;
+    /*A marca e o menu agora ficam separados*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.menu{
+    /*O menu tava flex e a marca não. Por isso colocamos o cabeçalho todo flex. Ai eles vão ficar alinhados.*/
+    display: flex;
+}
+.menu li{
+    list-style: none;
+    margin-left: 10px;
+}
+.rodape{
+    background-color:#727272;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+/*CSS Flexvbox 1-Inicio*/
+.flex{
+    /**/
+    display: flex;
+    max-width: 800px;
+    /*Após os elementos ultrapassarem 800px,o wrap faz a linha ser quebrada*/
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+/*Dando um tamanho pra cada div*/
+.flex > div{
+    /*O primeiro 1 deixa a div expandir(se fosse 0 eu não ia deixar ele expandir), o segundo 1 deixa a div encolher(se fosse 0 eu não ia deixar a div encolher) e o ultimo coloca o tamanho que a div pode ter*/
+    flex: 1 1 200px;
+    /*Para ocupar os 800px, 4 imagens ficavam encima, a linha quebrava e outras duas ocupavam 800px. Colocando a margin, as 4 imagens da linha de cima, (todas com 200px) ultrapassam 800px.Assim, a linha é quebrada e ficamos com tres imagens em cada linha, conforme foi pedido.*/
+    margin: 10px;
+}
+/*CSS Flexvbox 1-Fim*/

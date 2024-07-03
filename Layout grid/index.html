@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Página layout grid</title>
+    <link rel="stylesheet" href="style.css">
+    <!--Isso permite que nós coloquemos Icons em nosso site. Isso é essencial para fazer um menu mobile-->
+    <script src="https://kit.fontawesome.com/dbe8f6193b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="cabeçalho">
+        <a href="#">Marca</a>
+        <nav>
+            <!--Coloca uma caixinha, um botão para clicarmos-->
+            <input type="checkbox" name="" id="menutoggle">
+            <!--Labels controlam checbox-->
+            <label for="menutoggle" class="menu-icon">
+                <!--No site do font-awesome tem os códigos que colocam um ícone no nosso site.A tag de itálico costuma ser usada para isso, ela tá em varios icons do site. O das trés barras deitadas é esse ai de baixo, com essa classe.-->
+                <i class="fa fa-bars"></i>
+                <!--Esse icone é o que fecha o menu. Famoso x-->
+                <i class="fa fa-times-circle"></i>
+            </label>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Quem somos</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contatos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Exemplo grid</h1>
+    <section class="grid">
+        <div>
+            <img src="img/img1.jpg" alt="">
+            <p>Legenda</p>
+        </div>
+        <div>
+            <img src="img/img2.jpg" alt="">
+            <p>Legenda</p>
+        </div>
+        <div>
+            <img src="img/img3.jpg" alt="">
+            <p>Legenda</p>
+        </div>
+        <div class="card">
+            <img src="img/img4.jpg" alt="">
+            <p>Legenda</p>
+        </div>
+        <div class="card">
+            <img src="img/img1.jpg" alt="">
+            <p>Legenda</p>
+        </div>
+        <div class="card">
+            <img src="img/img2.jpg" alt="">
+            <p>Legenda</p>
+        </div>
+        <div class="card">
+            <img src="img/img3.jpg" alt="">
+            <p>Legenda</p>
+        </div>
+        <div class="card">
+            <img src="img/img4.jpg" alt="">
+            <p>Legenda</p>
+        </div>
+        <div class="card">
+            <img src="img/img1.jpg" alt="">
+            <p>Legenda</p>
+        </div>
+        <div class="banner">
+            <img src="img/img5.jpeg" alt="">
+            <p>Legenda</p>
+        </div>
+    </section>
+    <footer class="rodape">
+       <p>Copyright 2024-Todos os direitos reservados a Gabriel Penido</p> 
+    </footer>
+</body>
+</html>

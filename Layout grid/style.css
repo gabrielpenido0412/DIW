@@ -1,0 +1,191 @@
+html{
+    height: 100%;
+}
+body,ul,li,p{
+    margin: 0px;
+    padding: 0px;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    font-size: 120%;
+    text-align: center;
+}
+img{
+    /*Esse 100% impede que a imagem aumente mais que seu tamanho original.*/
+    max-width: 100%;
+    display: block;
+}
+.cabeçalho a{
+    text-decoration: none;
+    color: white;
+}
+.cabeçalho{
+    background-color:#727272;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.menu{
+    display: flex;
+}
+.menu li{
+    list-style: none;
+    margin-left: 10px;
+}
+.rodape{
+    background-color:#727272;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+/*CSS Grid 1 -Inicio*/
+.grid{
+    display: grid;
+    /*Cria tres colunas com o mesmo fracionamento*/
+    grid-template-columns: repeat(3,1fr);
+    /*Espaçamento entre as colunas*/
+    grid-gap: 20px;
+    /*Tamanho máximo do viewport*/
+    max-width: 800px;
+    /*Margens*/
+    margin: 0 auto;
+    /*Espaçamento entre itens*/
+    padding: 10px;
+}
+.card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-gap: 10px;
+}
+.banner{
+    grid-column: 3;
+    grid-row: 2/5;
+}
+/*Pra quando estiver no celular.*/
+@media screen and (max-width:1000px) {
+    .grid{
+        /*Coloca duas colunas*/
+        grid-template-columns: 1fr 1fr;
+    }
+    .card{
+        /*Volta a mostrar as imagens que estavam ficando escondidas no mobile quando o display era flex(por isso colocamos como block de novo)*/
+        display: block;
+    }
+    .banner{
+        /*O automático impede que a divisão que fizemos para encaixar no banner. Ai só coloca ele na divisão do 1fr 1fr.*/
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+/*CSS Grid 1 -Fim*/
+
+/*Menu mobile -Inicio*/
+/*Isso é pra "esconder"(o certo seria reformatar) o menu mobile na versão desktop*/
+#menutoggle{
+    display: none;
+}
+.menu-icon{
+    display: none;
+}
+@media screen and (max-width:1000px) {
+    /*Isso deixa nosso menu fixo no mobile.Se rolarmos a página, o menu rola junto, sempre ficando fixo na parte de cima.*/
+    .cabeçalho{
+        position: fixed;
+        top: 0px;
+        width: 100%;
+    }
+    .cabeçalho nav{
+        /*Quando abrimos o menu no mobile, ele vai ocupar a página toda. Por isso, colocamos o display absolute e o width e height ocupando 100% da página*/
+        display: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    .menu{
+        /*Vamos mexer só com linhas, não precisamos de grid*/
+        display: flex;
+        position: fixed;
+        flex-wrap: wrap;
+        /*Alinhando o conteudo no centro*/
+        align-content: center;
+        /*Colando ele nas bordas da página*/
+        top: 0px;
+        left: 0px;
+        /*Fazendo ele ocupar a página toda*/
+        width: 100%;
+        height: 100%;
+        /*Cor translucida*/
+        background-color: rgba(0, 0, 0, 0.7);
+        /*Tudo que ficar que ficar maior que o meu vai ser escondido*/
+        overflow: hidden;
+        /*Isso faz que na versão de celular, ele só apareça quando a checbox estiver checada.Ou seja, o chaveamento é feito e da tudo certo*/
+        height: 0%;
+        /*Colocamos uma transition para quando a altura do menu "sumir"  ou "voltar". Em alguns navegadores isso não funciona*/
+        transition: height 0.3s;
+        /*Pra arrumar pra todos os navegadores, na internet a gente acha códigos disso.*/
+        -webkit-transition: height 0.3s ;
+        -moz-transition: height 0.3s ;
+        -o-transition: height 0.3s ;
+    }
+    .menu li{
+        /*Isso faz cada item ficar embaixo do outro*/
+        display: block;
+        /*Ele tem que ocupar 100% da pagina*/
+        width: 100%;
+        margin-left: 0px;
+        margin-bottom: 20px;
+    }
+    .menu li a{
+        /*Os links ocupam uma linha cada um*/
+        display: block;
+        width: 100%;
+        /*Alinhamos o texto no centro*/
+        text-align: center;
+    }
+    .menu-icon{
+        display: block;
+        color: white;
+        width: 50px;
+        /**altura não setada**/
+        height: inherit;
+        /*Isso faz posicionar certinho ele*/
+        position: absolute;
+        /*Ajustando outras coisas, tipo deixar ele no top e na direita*/
+        top: 15px;
+        right: 30px;
+        line-height: 60px;
+        /*Permirte fazermos a sobreposição do icone de abrir e fechar o menu. */
+        z-index: 999;
+    }
+    .menu-icon i{
+        font-size: 1.7em;
+    }
+    /*Quando a checkbox(as tres barrinhas) estiver checada(quando clicarmos nela), o filho do label de numero 2(o segundo i, que é o do x) vai ser mostrado.*/
+    #menutoggle:checked ~ label i:nth-child(2){
+        display: block; 
+    }
+    /*Quando a checkbox estiver checada, o primeiro filho do label(que é as tres barrinhas) não vai aparecer*/
+    #menutoggle:checked ~ label i:first-child{
+        display: none; 
+    }
+    /*Quando o label não estiver checado(usamos a condicional not praa isso), o primeiro filho do label(que são as tres barrinhas) vão aparecer*/
+    #menutoggle:not(checked) ~ label i:first-child{
+        display: block; 
+    }
+    /*Quando o label não estiver checado(usamos a condicional not pra isso), segundo filho do label(que é o x) não vai aparecer*/
+    #menutoggle:not(checked) ~ label i:nth-child(2){
+        display: none; 
+    }
+    /*Isso faz que na versão de celular, a primeira ul do menutoggle(que é a ul  menu) só apareça quando a checbox estiver checada. Ou seja, quando nós clicarmos nas tres barrinhas*/
+    #menutoggle:checked ~ ul{
+        height: 100%;
+    }
+}
+/*Menu mobile -Fim*/
