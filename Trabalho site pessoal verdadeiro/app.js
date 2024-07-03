@@ -1,0 +1,12 @@
+fetch('https://api.github.com/users/gabrielpenido0412')
+    //.then(function(res){console.log(res)})
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data)
+        console.log(data.name)
+        document.getElementById('avatar').src=data.avatar_url
+        document.getElementById('nome_github').innerText=data.name
+        document.getElementById('bio_github').innerText=data.bio
+    })
+    //.then(data=>console.log(data.name))
+    //.then(data=>document.getElementById('nome').innerText=data.name)

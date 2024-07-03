@@ -1,0 +1,403 @@
+html {
+    height: 100%;
+}
+body,ul,li,p {
+    /*Reseto o padding e a margin*/
+    margin: 0px;
+    padding: 0px;
+    /*Tamanho da fonte e seu tipo*/
+    font-size: 120%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Inicio Cabeçalho da página*/
+.cabeçalho {
+    /*Deixando tudo flex*/
+    background: gray;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.menu-principal {
+    /*Deixando tudo flex*/
+    display: flex;
+}
+
+.menu-principal li {
+    /*Tirando os bullets, aumentando a fonte e dando um espaçamento entre os itens */
+    list-style: none;
+    margin-left: 10px;
+}
+
+.menu-principal li a {
+    /*Tira a decoração e deixa ele preto*/
+    text-decoration: none;
+    color: white;
+}
+
+.nome {
+    /*Coloca cor de fundo e borda arredondada*/
+    text-decoration: none;
+    background-color: lightgray;
+    padding: 20px;
+    font-size: 120%;
+    border-radius: 10px;
+    color: black;
+}
+
+/*Menu mobile*/
+#menutoggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+}
+
+@media screen and (max-width: 972px) {
+    .cabeçalho {
+        position: fixed;
+        top: 0px;
+        z-index: 100;
+        width: 100%;
+    }
+    
+    label i {
+        margin-right: 3vw;
+        font-size: 300%;
+    }
+
+    #menutoggle:checked~label i:nth-of-type(2) {
+        display: block;
+    }
+
+    #menutoggle:checked~label i:first-child {
+        display: none;
+    }
+
+    #menutoggle:not(checked)~label i:nth-of-type(1) {
+        display: block;
+    }
+
+    #menutoggle:not(checked)~label i:nth-child(2) {
+        display: none;
+    }
+
+    #menuToggle:checked~.menu-principal {
+        display: block;
+
+        position: fixed;
+
+        top: 16vh;
+        right: 0vw;
+
+        padding: 4.5%;
+
+        border-bottom-left-radius: 10%;
+
+        list-style: none;
+
+        background-color: rgb(235, 20, 95);
+
+        z-index: 150;
+    }
+
+    #menuToggle:checked~.menu-principal li {
+        text-decoration: none;
+
+        color: rgb(0, 0, 0);
+
+        font-size: 135%;
+        font-weight: 600;
+
+        line-height: 250%;
+
+    }
+
+    #menuToggle:checked~.menu-principal li a {
+        text-decoration: none;
+
+        color: inherit;
+
+        padding: 5%;
+
+        border-radius: 5px;
+
+        background-color: aliceblue;
+
+    }
+
+    .seção1 {
+        margin-top: 40%;
+    }
+}
+/*Fim do cabeçalho da página*/
+/*Inicio seção 1*/
+/*Coloca borda*/
+.nome_perfil {
+    border-bottom: solid 2px gray;
+}
+
+.seção1 {
+    padding: 20px 20px;
+    /*Isso permite a imagem ficar de um lado e o texto de outro*/
+    display: inline-block;
+}
+
+/*Faz que a imagem ficar na esuqerda e coloca borda*/
+.foto_de_perfil {
+    float: left;
+    margin-right: 5%;
+    border: 6px;
+    border-color: aliceblue;
+    border-style: solid;
+    border-radius: 2%;
+    display: block;
+}
+
+/*Colocando cores*/
+.titulo {
+    color: blue;
+}
+
+p span {
+    color: blue;
+}
+
+.site {
+    display: block;
+    position: relative;
+    word-break:break-all;
+}
+.icones i {
+    font-size: 200%;
+}
+.icones a{
+    color: black;
+}
+.icones i:hover {
+    color: red;
+}
+
+.bio{
+    width: 100%;
+    display: block;
+}
+
+/*Colocando o icone de users na direita da página*/
+.users i {
+    float: right;
+}
+
+/*Escondendo o user que aparece no mobile*/
+.user_mobile {
+    display: none;
+}
+
+@media screen and (max-width:992px) {
+    .users i {
+        display: none;
+    }
+
+    .user_mobile {
+        display: inline;
+    }
+}
+
+
+/*Fim seção 1*/
+/*Inicio seção 2*/
+.repositorios {
+    border-bottom: solid 2px gray;
+}
+
+.seção2 {
+    padding: 20px 20px;
+}
+
+/*Fim  seção 2*/
+/*Inicio seção 3*/
+.conteudo_sugerido {
+    border-bottom: solid 2px gray;
+}
+
+.seção3 {
+    padding: 20px 20px;
+}
+
+/*Conteudo do carrosel*/
+.slides {
+    padding: 2.5% 3.25% 3.75%;
+    margin: 0 7.5%;
+    border-radius: 15px;
+    color: black;
+    background-color: blue;
+}
+
+#slides {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-inner {
+    border-radius: 8px;
+}
+
+.carousel-caption {
+    border-radius: 15px;
+
+    align-content: center;
+
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.carousel-control-prev span i,
+.carousel-control-next span i {
+
+    padding: 5%;
+
+    border-radius: 25%;
+
+    color: rgb(255, 0, 149);
+
+    font-size: 250%;
+
+    background-color: rgba(128, 0, 128, 0.525);
+}
+
+.carousel-indicators button {
+    position: relative;
+
+    border-radius: 50px;
+
+    height: 14px !important;
+    width: 14px !important;
+    margin: 0 15px !important;
+    border-radius: 100%;
+    background-color: #eee0f7 !important;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .carousel-caption:hover {
+        color: crimson;
+
+        background-color: rgba(2, 0, 3, 0.815);
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 880px) {
+
+    .carousel-indicators button {
+        top: 6.7vh;
+    }
+}
+
+@media only screen and (min-width: 881px) and (max-width: 1145px) {
+
+    .carousel-indicators button {
+        top: 7.2vh;
+    }
+}
+
+@media only screen and (min-width: 1146px) {
+
+    .carousel-indicators button {
+        top: 7.7vh;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+
+    .slides {
+        padding: 3.5% 4.25% 5.75%;
+
+        margin: 0 4.5%;
+    }
+
+    .carousel-indicators button {
+        top: 7.25vh;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+
+    .slides {
+        padding: 3.5% 4.25% 5.75%;
+
+        margin: 0 4.5%;
+    }
+
+    .carousel-indicators button {
+        top: 6.85vh;
+    }
+
+}
+
+
+/*Conteúdo recomendado (Carousel) fim */
+
+@media screen and (max-width:992px) {
+    .seção3 {
+        width: 100%;
+        display: block;
+    }
+
+    .carrosel {
+        width: 100%;
+    }
+
+}
+
+/*Fim  seção 3*/
+/*Inicio seção 4*/
+.colegas_de_trabalho {
+    border-bottom: solid 2px gray;
+    margin-left: 20px;
+    margin-top: 12%;
+}
+
+.seção4_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.colega p {
+    color: blue;
+}
+
+.thumbnail {
+    border: 6px;
+    border-color: aliceblue;
+    border-style: solid;
+    border-radius: 2%;
+    width: 380px;
+    height: 390px;
+}
+
+@media screen and (max-width:992px) {
+    .seção4_grid {
+        grid-template-columns: 1fr;
+        display: block;
+    }
+}
+
+/*Fim  seção 4*/
+/*Rodapé*/
+.rodapé {
+    background-color: #727272;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    bottom: 0;
+}
