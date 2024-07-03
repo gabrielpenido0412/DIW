@@ -1,0 +1,106 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    /*O height determina altura o header, o border-bottom coloca uma borda na parte de baixo do header. O lightgrey é a cor da borda. A imagem por algum motivo não tá indo.*/
+    height: 80px;
+    border-bottom: solid 1px lightgrey;
+}
+/*Componente Menu principal*/
+.menu-principal{
+    /*Jogamos os elementos pra direita com o float e ajustamos com o margin*/
+    right: 0px;
+    float: right;
+    margin-right: 10px;
+}
+.menu-principal ul{ 
+    /*Tiramos os bullets(bolinhas que ficam antes das uls*/
+    list-style: none;
+}
+.menu-principal ul li{ 
+    /*Deixamos em inline block*/
+    display: inline-block;
+}
+.menu-principal ul li a{ 
+    /*Colocamos cores no fundo dos  elementos que estão linkados a algo. O padding ajusta as medidas dentro das "caixinhas" que cada elemento tá*/
+    text-decoration: none;
+    color: black;
+    background-color: lightblue;
+    padding: 10px;
+}
+.menu-principal ul li a:hover{ 
+    /*Colocamos cores no fundo dos elementos que estão linkados a algo.Por causa do hover, elas aparecem quando passamos o mouse encima desses elementos*/
+    color: red;
+    background-color: lightgray;
+}
+/*O main não faz parte do componente menu principal*/
+main{
+    /*o width faz que 70% da página seja ocupada pelo main e os outros 30% pelo aside.Isso dá certo porque como usamos o float left nod dois, eles ocupam a mesma parte da página, o que permite fazermos essa divisão. */
+    width: 70%;
+    float: left;
+    background-color: lightpink;
+}
+/*Componente Post*/
+/*O padding só da uma ajustada nas medidas do post. O clear limpa as flutuações tanto da direita quando da esquerda, o que deixa as imagens ajustadas com o texto.*/
+.caixa-post{
+    clear: both;
+    padding: 10px 10px;
+}
+.thumbnail{
+    /*O block deixa nós jogarmos a imagem pra esquerda com o float*/
+    display:  block;
+    float: left;
+    margin-right: 10px;
+    width: 150px;
+}
+.titulo{
+    font-size: 120%;
+}
+.subtitulo{
+    color: darkred;
+    font-size: 80%;
+    margin-bottom: 10px ;
+}
+.caixa-post span:nth-child(3){
+    /*A pseudo classe :nht-child permite a alteração de um elemento especifico. Nesse caso estamos colocando cores, borda e ajustando medidas no terceiro span que está na caixa post.*/
+    background-color: lightblue;
+    color: white;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 3px;
+}
+/*O aside não faz parte do componente post*/
+aside{
+    float: left;
+    width: 30%;
+    background-color: lightgrey;
+    padding-bottom: 100px;
+}
+/*Componente caixa de pesquisa*/
+.caixa-pesquisa{
+    margin: 20px;
+    margin-bottom: 30px;
+}
+.caixa-pesquisa h3{
+    margin-bottom: 10px;
+    font-size: 130%;
+}
+/*Componente categorias*/
+.caixa-categoria{
+    margin: 20px;
+}
+.caixa-categoria ul{
+    list-style: none;
+}
+.caixa-categoria a{
+    text-decoration: none;
+}
+.caixa-categoria h3{
+    margin-bottom: 10px;
+    font-size: 130%;
+}
+.caixa-categoria ul li{
+    font-size: 120%;
+}
+
+/*grids*/
