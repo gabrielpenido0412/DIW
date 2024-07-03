@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <button id="btnCarregaDados">carregaDados</button>
+    <ul id="ulCidades">
+        <li>Belo Horizonte</li>
+        <li>São Paulo</li>
+        <li>Rio de Janeiro</li>
+        <li>Curitiba</li>
+        <li>Fortaleza</li>
+    </ul>
+
+    <div>
+        <input type="text" id="corFundo">
+        <button   id="btnMudaFundo" >
+            Mudar fundo da tela</button>
+    </div>
+    <script src="app.js"></script>
+    <script>
+
+        //associamos a função mudaFundo com o evento de click
+            document.getElementById('btnMudaFundo').addEventListener ('click', mudaFundo)
+            function mudaFundo() {
+                //Se digitarmos na caixa de texto que a cor de fundo é yellow(por exemplo),ele muda  a cor de fundo pra yellow
+                let cor = document.getElementById('corFundo').value
+                //isso faz que a cor mude
+                document.body.style.backgroundColor = cor
+            }
+            document.getElementById('btnCarregaDados').addEventListener ('click', carregaDados)
+            function carregaDados() {
+                let ulCidades = document.getElementById('ulCidades');
+                strTextoHTML = '';
+    
+                for (let i = 0; i < cidades.length; i++) {
+                    let cidade = cidades[i];
+                    //o que tá escrito na li virar um link.
+                    //Para saber qual foi a cidade que o usuário clicou,nós usamos o id como query string(tá depois do ?,então é query string)
+                    strTextoHTML += `<li>
+                        
+                                    <a href="detalhes.html?id=${cidade.id}">
+                                        ${cidade.nome} - ${cidade.estado}</a>
+                                </li>`
+                }
+    
+                ulCidades.innerHTML = strTextoHTML;
+            }        
+            
+    </script>
+</body>
+</html>

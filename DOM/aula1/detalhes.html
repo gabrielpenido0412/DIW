@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Cidade</title>
+</head>
+<body>
+    <div id="tela"></div>
+
+    <script src="app.js"></script>
+    <script>
+        function carregaDadosCidade () {
+            //o new cria um novo objeto
+            //Ele recebe como parametro a query string,que é onde tá nosso id. Esse id(a query string no geral, que é o pedaço que queremos) tá dentro do objeto search que tá dentro do objeto location.Assim, nós conseguimos acessar o id.
+            let params = new URLSearchParams(location.search)
+            console.log(params)
+            //A variavel id é igual ao objeto id do params
+            //o get vai pegar um parametro. No caso, o id.
+            let id = params.get('id')
+            //Vamos supor que o id é igual a 1. Para acharmos o objeto que tem id=1, existem uma função nos arrays chamada find. Passamos uma função para esse metodo find que vai identificar se o id da cidade é igual ao id que a gente recebeu como parametro.
+            //o elem é o elemento do array
+            //ela retorna se o objeto id do elem é igual ao id que recebemos como parametro
+            //o return que sinaliza pro find que esse id é o que a gente precisa
+            cidade = cidades.find (function (elem) { return elem.id == id })
+            let tela = document.getElementById('tela')
+            //Verificar se essa cidade foi atribuida. Se essa cidade não foi atribuida, ela vai dar como undefined(no java script isso é considerado false)
+            if (cidade) {
+                //nessa template string, vamos passar todos os dados que temos dessa cidade
+                tela.innerHTML = `<p>id: ${cidade.id} <br>
+                                  cidade: <strong>${cidade.nome} </strong> <br>
+                                  estado: ${cidade.estado} <br>
+                                  População: ${cidade.populacao}</p>`
+            }
+            else {
+                tela.innerHTML = `Cidade não encontrada`
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>
